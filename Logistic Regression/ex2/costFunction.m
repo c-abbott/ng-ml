@@ -19,12 +19,19 @@ grad = zeros(size(theta));
 %
 % Note: grad should have the same dimensions as theta
 %
-for i = 1:m
-    J = J + (-y(i) * log(sigmoid(X(i,:)*theta)) - ...
-        (1 - y(i)) * log(1 - sigmoid(X(i,:)*theta))) / m;
-    for l = 1:size(theta)
-        grad(l) = grad(l) + ((sigmoid(X(i,:)*theta) - y(i)) * X(i, l)) / m;        
-    end    
-end
+% for i = 1:m
+%    J = J + (-y(i) * log(sigmoid(X(i,:)*theta)) - ...
+%        (1 - y(i)) * log(1 - sigmoid(X(i,:)*theta))) / m;
+%    for l = 1:size(theta)
+%        grad(l) = grad(l) + ((sigmoid(X(i,:)*theta) - y(i)) * X(i, l)) / m;        
+%    end    
+% end
+
+% calculate cost function
+h = sigmoid(X*theta);
+J = ((-y)'*log(h)-(1-y)'*log(1-h))/m;
+
+% calculate grads
+grad = (X'*(h - y))/m;
 % =============================================================
 end
