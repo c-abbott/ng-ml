@@ -26,6 +26,10 @@ if size(X, 2) <= 3
     legend('Admitted', 'Not admitted', 'Decision Boundary')
     axis([30, 100, 30, 100])
 else
+    % We plot the nonlinear decision boundary by computing the classifier's
+    % predictions on an evenly spaced grid and then drew a contour plot of 
+    % where the predictions change from to.
+    
     % Here is the grid range
     u = linspace(-1, 1.5, 50);
     v = linspace(-1, 1.5, 50);
