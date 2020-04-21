@@ -17,18 +17,17 @@ grad = zeros(size(theta));
 %               regression for a particular choice of theta.
 %
 %               You should set J to the cost and grad to the gradient.
-%
 
+% Calculate cost function
+diff = X*theta - y;
+% Calculate penalty
+% Excluded the first theta value
+theta_r = [0 ; theta(2:end, :)];
+p = lambda*(theta_r'*theta_r);
+J = (diff'*diff)/(2*m) + p/(2*m);
 
-
-
-
-
-
-
-
-
-
+% Calculate grads
+grad = (X'*diff + lambda*theta_r)/m;
 
 % =========================================================================
 
