@@ -20,7 +20,6 @@ grad = zeros(size(theta));
 
 % Calculate cost function
 diff = X*theta - y;
-% Calculate penalty
 % Excluded the first theta value
 theta_r = [0 ; theta(2:end, :)];
 p = lambda*(theta_r'*theta_r);
